@@ -1,0 +1,24 @@
+<h1 style="text-align: center">Fathers List</h1>
+
+<table class="table">
+  <thead class="thead-dark">
+  <tr>
+    <th scope="col">#ID</th>
+    <th scope="col">Father</th>
+    <th scope="col">ChildList</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let family of families | async ">
+    <th scope="col">{{family.id}}</th>
+    <th scope="col">{{family.father.firstName.concat(" "+family.father.secondName)}}</th>
+    <th>
+      <ul>
+        <li *ngFor="let child of family.childList">
+          <h4>{{child.firstName}}, {{child.secondName}}</h4>
+        </li>
+      </ul>
+    </th>
+  </tr>
+  </tbody>
+</table>

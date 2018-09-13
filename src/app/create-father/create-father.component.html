@@ -1,0 +1,41 @@
+<h3>Create Father</h3>
+<div class="container">
+  <div [hidden]="submitted" class="align-items-md-center" style="background-color: bisque; border-bottom-color: black; width: 300px; position: center">
+    <p style="text-align: center"> Podsumowanie danych Ojca </p>
+    <p>Imię: {{father.firstName}} </p>
+    <p>Nazwisko: {{father.secondName}} </p>
+    <p>Pesel: {{father.pesel}} </p>
+    <p>Data urodzin: {{father.birthDate}} </p>
+  </div>
+</div>
+<div [hidden]="submitted" style="width: 300px;">
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="firstName">Imię:</label>
+      <input type="text" class="form-control" id="firstName" required [(ngModel)]="father.firstName" name="firstName">
+    </div>
+
+    <div class="form-group">
+      <label for="secondName">Nazwisko:</label>
+      <input type="text" class="form-control" id="secondName" required [(ngModel)]="father.secondName" name="secondName">
+    </div>
+
+    <div class="form-group">
+      <label for="pesel">Pesel:</label>
+      <input type="text" class="form-control" id="pesel" required [(ngModel)]="father.pesel" name="pesel">
+    </div>
+    <div class="form-group">
+      <label for="pesel">Data urodzin:</label>
+      <input type="text" class="form-control" id="birthDate" (bsConfig) = "datePickerConfig" bsDatepicker [(ngModel)]="father.birthDate" name="birthDate">
+    </div>
+
+
+
+    <button type="submit" class="btn btn-success">Submit</button>
+  </form>
+</div>
+<div [hidden]="!submitted">
+  <h4>You submitted successfully!</h4>
+  <!--<button class="btn btn-success" (click)="newFather()">Add</button>-->
+  <app-create-child [father]=father></app-create-child>
+</div>

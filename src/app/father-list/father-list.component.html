@@ -1,0 +1,22 @@
+<h1 style="text-align: center">Fathers List</h1>
+
+<table class="table">
+  <thead class="thead-dark">
+  <tr>
+    <th scope="col">#ID</th>
+    <th scope="col">FirstName</th>
+    <th scope="col">SecondName</th>
+    <th scope="col">Pesel</th>
+    <th scope="col">Birth Date</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let father of fathers | async">
+    <th scope="col">{{father.id}}</th>
+    <th scope="col">{{father.firstName}}</th>
+    <th scope="col">{{father.secondName}}</th>
+    <th scope="col">{{father.pesel}}</th>
+    <th scope="col">{{father.birthDate}}</th>
+  </tr>
+  </tbody>
+</table>
