@@ -9,13 +9,13 @@ import {Family} from './Family';
 })
 export class FamilyService {
 
-  private baseUrl = 'http://localhost:8080/api';
+  private baseUrl = 'http://localhost:8081/api';
 
   constructor(private http: HttpClient) { }
 
-  // getCustomer(id: number): Observable<Object> {
-  //   return this.http.get(`${this.baseUrl}/${id}`);
-  // }
+  getFamList(): Observable<any> {
+    return this.http.get(`${this.baseUrl}` + '/getFamilies');
+  }
 
   getFamilyByPeselChild(pesel: string): Observable<any> {
     return this.http.get(`${this.baseUrl}` + `/getFamilyByPeselChild/${pesel}`);
@@ -40,24 +40,4 @@ export class FamilyService {
   createFamily(family: Family): Observable<Object> {
     return this.http.post(`${this.baseUrl}` + `/addFamily`, family);
   }
-  //
-  // updateCustomer(id: number, value: any): Observable<Object> {
-  //   return this.http.put(`${this.baseUrl}/${id}`, value);
-  // }
-  //
-  // deleteCustomer(id: number): Observable<any> {
-  //   return this.http.delete(`${this.baseUrl}/${id}`, { responseType: 'text' });
-  // }
-  //
-  getFamilyList(): Observable<any> {
-    return this.http.get(`${this.baseUrl}` + `/getFamilies`);
-  }
-  //
-  // getCustomersByAge(age: number): Observable<any> {
-  //   return this.http.get(`${this.baseUrl}/age/${age}`);
-  // }
-  //
-  // deleteAll(): Observable<any> {
-  //   return this.http.delete(`${this.baseUrl}` + `/delete`, { responseType: 'text' });
-  // }
 }

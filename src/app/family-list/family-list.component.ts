@@ -1,10 +1,10 @@
 import { Component, OnInit, Input } from '@angular/core';
 import {Observable} from 'rxjs';
 import {Family} from '../Family';
-import {FamilyService} from '../../FamilyService';
 import {Child} from '../Child';
 import {ChildService} from '../ChildService';
 import {Father} from '../Father';
+import {FamilyService} from '../FamilyService';
 
 @Component({
   selector: 'app-family-list',
@@ -18,7 +18,7 @@ export class FamilyListComponent implements OnInit {
   k: number;
   children: Child[];
 
-  constructor(private familyService: FamilyService) { }
+  constructor(private dataService: FamilyService) { }
 
   ngOnInit() {
     this.reloadData();
@@ -27,7 +27,7 @@ export class FamilyListComponent implements OnInit {
   }
 
   reloadData() {
-    this.families = this.familyService.getFamilyList();
+    this.families = this.dataService.getFamList();
   }
 
   // searchChildren(id: number) {

@@ -11,7 +11,9 @@ import {FatherListComponent} from '../father-list/father-list.component';
 export class FatherDetailsComponent implements OnInit {
 
   @Input() customer: Father;
-  constructor(private fatherService: FatherService, private listComponent: FatherListComponent) { }
+  father: Father = new Father();
+  constructor(private fatherService: FatherService, private listComponent: FatherListComponent) {this.father = this.customer;
+  }
 
   ngOnInit() {
   }
