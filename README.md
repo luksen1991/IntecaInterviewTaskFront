@@ -1,4 +1,10 @@
 # Uruchomienie Aplikacji:
+Należy uruchomić terminal w folderze gdzie znajduje się projekt i wpisać następującą komendę która zbuduje image docker:
+docker build -t clientapplications .
+Po wpisaniu tej komendy zostanie zbudowany image. Kolejnym krokiem jest utworzenie kontenera:
+docker run --rm -d -p 4200:80 clientapplications
+W tym momencie strona dostępna jest pod adresem:
+http://localhost:4200/
 
 # ClientAp
 
